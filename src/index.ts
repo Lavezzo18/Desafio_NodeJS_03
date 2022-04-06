@@ -1,43 +1,35 @@
-/**
- * Required External Modules
- */
+var express = require('express');
+var app = express();
+var  readlineSync  = require
 
-import * as dotenv from "dotenv";
-import express from "express";
-import cors from "cors";
-import helmet from "helmet";
+app.listen(7000, () => {
+  console.log('Executando na porta 7000!');
 
-dotenv.config();
+console.log('Desafio_03')
 
-/**
- * App Variables
- */
+const nome1:string = 'Rafael Silva'; 
+const nota1:number = 9;
 
-if (!process.env.PORT) {
-	process.exit(1);
-}
+const nome2:string = 'Gabriel Alves';
+const nota2:number = 6;
 
-const PORT: number = parseInt(process.env.PORT as string, 10);
-
-const app = express();
-
-/**
- *  App Configuration
- */
-
-app.use(helmet());
-app.use(cors());
-app.use(express.json());
-
-/**
- * Server Activation
- */
-
-app.listen(PORT, () => {
-	console.log(`Listening on port ${PORT}`);
-
-
-	// CÓDIGO PARA ATENDER OS REQUERIMENTOS
-	// R01, R02, R03, R04, R05
-	
-});
+  const readline = require('readline').createInterface({
+    _input: process.stdin,
+    get input() {
+      return this._input;
+    },
+    set input(value) {
+      this._input = value;},
+    output: process.stdout,
+  
+  }) //2 alunos 
+  
+  readline.question(`Quantos alunos? R:`, (number: any) => { 
+    console.log(`São ${number} alunos!`);
+      readline.question(`Qual o nome dos alunos?`, (string: any) => {
+        console.log(`Nome1: ${nome1}, Nome2: ${nome2}`);
+          readline.question(`Qual a nota dos alunos:` , (number: any) => {
+            console.log(`Nota1: ${nota1}, Nota2: ${nota2}`);
+              console.log(`Maior Nota: ${nome1}, ${nota1}`); 
+                readline.close();  
+          })})})});
